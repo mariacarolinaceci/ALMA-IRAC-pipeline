@@ -1,9 +1,6 @@
 # ==============================================================================
 # 🔬 PIPELINE COMPLETA ALMA × IRAC — Tutti i clump, bande I3 + I4
 # ==============================================================================
-# Esegui da miniconda:  python pipeline_alma_irac.py
-# Oppure copia in una cella Colab
-# ==============================================================================
 
 # --- IMPORT ---
 import numpy as np
@@ -24,7 +21,7 @@ from photutils.aperture import (CircularAperture, CircularAnnulus,
 warnings.filterwarnings('ignore', category=AstropyWarning)
 
 # ==============================================================================
-# 📁 PATH — CAMBIA QUESTI PER IL TUO SISTEMA
+# 📁 PATH
 # ==============================================================================
 # Per Colab:
 # alma_file      = '/content/drive/MyDrive/AlmaIrac/7MTM2TM1_Core_catalogue_out_official_v3_run6Apr23+16Jan24_sn-5_may24_clump_cat.txt'
@@ -180,7 +177,7 @@ for ic, target_clump in enumerate(['47184']):
     n_sources = len(alma_ids)
 
     # ==================================================================
-    # 📡 D. CATALOGO GLIMPSE (una volta per clump, contiene tutte le bande)
+    # 📡 D. CATALOGO GLIMPSE
     # ==================================================================
     cat_file = os.path.join(irac_cat_path,
                             f'{target_clump}_IRsources_glimpse_s07_ar.txt')
@@ -309,7 +306,7 @@ for ic, target_clump in enumerate(['47184']):
                 source_mask |= (d <= r_mask_pix)
 
 # ==============================================================
-        # 🎯 E4. Match + fotometria (ristrutturato)
+        # 🎯 E4. Match + fotometria 
         # ==============================================================
         r_phot_pix    = R_PHOT_ARCSEC / pixel_scale_arcsec
         r_ann_in_pix  = R_ANN_IN_ARCSEC / pixel_scale_arcsec
